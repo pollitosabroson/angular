@@ -1,0 +1,9 @@
+<div class="row">
+	<div class="col-lg-12" data-ng-repeat='libro in libros'>
+		<h1>{{ libro.nombre}}</h1>
+		<strong>Editorial:</strong><span>&nbsp;{{ libro.editorial}}</span><br>
+		<strong>Genero:</strong><span>&nbsp;{{ libro.genero }}</span><br>
+		<strong>Autor:</strong><span>&nbsp;{{ libro.autor.nombre }}&nbsp;{{ libro.autor.apellido }}</span>
+		<hr>
+	</div>
+</div>
