@@ -1,6 +1,8 @@
 demo.controller('LibrosCtrl',
-    function($scope, librosLista) {
-        $scope.books = librosLista;
-        console.log(librosLista)
+    function($scope, $api, Libros) {
+    	console.log($api.url(''))
+        $scope.books = Libros.lista();
+        console.log(Libros.lista())
+
     }
 );

@@ -3,20 +3,19 @@ demo.config([
     function($contentProvider, $stateProvider) {
         $stateProvider
             .state('libros', {
-                url: 'libros',
+                url: '/',
                 templateUrl: $contentProvider.url('libros/base.html'),
                 abstract: true
             })
             .state('libros.lista', {
                 url: '',
-                templateUrl: $contentProvider.url('app/partials/home/base.html'),
+                templateUrl: $contentProvider.url('libros/lista.html'),
                 controller: 'LibrosCtrl',
-                resolve: {
-                    librosLista: function(Libros) {
-                        alert('hola')
-                        return Libros.query().$promise;
+                /*resolve: {
+                    librosLista: function() {
+                        return Libros.$lista().$promise;
                     }
-                }                    
+                }*/                    
                 
             })
 

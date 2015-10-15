@@ -1,6 +1,15 @@
 demo.factory('Libros', ['$resource', '$api',
     function($resource, $api) {
-        alert('HOLA')
-        return $resource($api.url('libros/:id'), {id: '@id'})
+        return $resource(
+            $api.url('libros/:id'),
+            {id: '@id'},
+            {
+                lista: {
+                    method: 'GET',
+                    url: $api.url('libros/'),
+                    isArray: true
+                }
+            }
+        );
     }
 ]);

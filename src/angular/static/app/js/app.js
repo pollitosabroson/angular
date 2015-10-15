@@ -6,11 +6,11 @@ var demo = angular.module('demo', [
 
 
 demo.config([
-    '$apiProvider', '$contentProvider', '$locationProvider', '$httpProvider' , '$sceDelegateProvider',
-    function($apiProvider, $contentProvider, $locationProvider, $httpProvider, $sceDelegateProvider) {
+    '$apiProvider', '$contentProvider', '$locationProvider', '$httpProvider' , '$sceDelegateProvider', '$resourceProvider',
+    function($apiProvider, $contentProvider, $locationProvider, $httpProvider, $sceDelegateProvider, $resourceProvider) {
         /* Configure api endpoint */
-        $apiProvider.apiEndpoint = window.location.host + '/api';
-        $apiProvider.apiUsesTrailingSlash = false;
+        $apiProvider.apiEndpoint = '/api';
+        $apiProvider.apiUsesTrailingSlash = true;
 
         /* Configure content base url */
         $contentProvider.urlPrefix = '/assets/app/partials/';
@@ -24,6 +24,8 @@ demo.config([
 
         // CSRF interceptor for django requests.
         $httpProvider.interceptors.push('CSRFInterceptor');
+
+        $resourceProvider.defaults.stripTrailingSlashes = false;
 
 
     }
